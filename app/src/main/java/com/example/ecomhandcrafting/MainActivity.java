@@ -1,5 +1,6 @@
 package com.example.ecomhandcrafting;
 
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,7 +13,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -68,16 +71,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void validateUser() {
-        OkHttpClient okHttpClient = new OkHttpClient ().newBuilder()
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
-                .build();
+//        OkHttpClient okHttpClient = new OkHttpClient ().newBuilder()
+//                .connectTimeout(60, TimeUnit.SECONDS)
+//                .readTimeout(60, TimeUnit.SECONDS)
+//                .writeTimeout(60, TimeUnit.SECONDS)
+//                .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl ("http://localhost:8080/user")
+                .baseUrl ("http://172.20.10.2:8080/")
                 .addConverterFactory (GsonConverterFactory.create())
-                .client(okHttpClient)
+//                .client(okHttpClient)
                 .build ();
 
         UserApi loginApi = retrofit.create (UserApi.class);
@@ -122,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                     if (attempt_counter == 0) {
                         btn_login.setEnabled(false);
                         counter = 30;
-                        new CountDownTimer (30000, 1000) {
+                        new CountDownTimer(30000, 1000) {
                             public void onTick(long millisUntilFinished) {
                                 btn_login.setEnabled(false);
                                 textViewTimer.setTextColor (Color.rgb (255,157,0));
@@ -144,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                progressDialog.cancel ();
+//                progressDialog.cancel ();
                 Toast.makeText (getApplicationContext (), t.getMessage (), Toast.LENGTH_LONG).show ();
             }
         });
