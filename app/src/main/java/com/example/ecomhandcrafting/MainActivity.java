@@ -54,10 +54,7 @@ public class MainActivity extends AppCompatActivity {
         textViewTimer = findViewById (R.id.tv_timer);
         progressBar = findViewById (R.id.progressBarMainActivity);
 
-
-
-
-
+        
         btn_login.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View view) {
