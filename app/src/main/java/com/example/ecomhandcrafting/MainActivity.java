@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_login;
     TextView textViewTimer;
     ProgressBar progressBar;
+    ImageView show_hide_pass;
 
     ProgressDialog progressDialog;
 
@@ -55,8 +59,16 @@ public class MainActivity extends AppCompatActivity {
         btn_login = findViewById (R.id.btn_login);
         signup_link = findViewById (R.id.tv_signup);
         textViewTimer = findViewById (R.id.tv_timer);
+        show_hide_pass = findViewById (R.id.btn_show_hide_pass);
         progressBar = findViewById (R.id.progressBarMainActivity);
 
+        show_hide_pass.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View view) {
+                et_password.setTransformationMethod(null);
+                show_hide_pass.setImageResource (R.drawable.hide_pass);
+            }
+        });
         
         btn_login.setOnClickListener (new View.OnClickListener () {
             @Override
@@ -68,7 +80,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
+
+
 
     private void validateUser() {
 //        OkHttpClient okHttpClient = new OkHttpClient ().newBuilder()
@@ -78,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 //                .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl ("http://172.20.10.2:8080/")
+                .baseUrl ("http://192.168.11.1:8080/")
                 .addConverterFactory (GsonConverterFactory.create())
 //                .client(okHttpClient)
                 .build ();
@@ -118,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                 else if(message.getPassword () == null){
 
                     attempt_counter--;
-                    progressDialog.cancel ();
+//                    progressDialog.cancel ();
                     textViewTimer.setTextColor (Color.RED);
                     textViewTimer.setText(String.valueOf("Attempt left : " + attempt_counter));
 
