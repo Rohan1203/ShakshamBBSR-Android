@@ -1,4 +1,4 @@
-package com.example.ecomhandcrafting;
+package com.ecomhandcrafting;
 
 import retrofit2.Call;
 
