@@ -19,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
+import com.ecomhandcrafting.HomePage.HomePage;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
         btn_login.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View view) {
-                validateUser();
-//                Intent intent = new Intent (getApplicationContext (), RatingActivity.class);
-//                startActivity (intent);
+                //validateUser();
+                Intent intent = new Intent (getApplicationContext (), HomePage.class);
+                startActivity (intent);
 
             }
         });

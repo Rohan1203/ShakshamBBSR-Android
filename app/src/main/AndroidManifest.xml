@@ -13,15 +13,29 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".RatingActivity"></activity>
+        <activity android:name=".HomePage.Product1"></activity>
+        <activity android:name=".HomePage.FootWear" />
+        <activity android:name=".HomePage.Myorders" />
+        <activity android:name=".HomePage.HomePage">
+
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
