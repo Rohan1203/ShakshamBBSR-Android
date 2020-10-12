@@ -30,9 +30,9 @@
         android:layout_above="@+id/app_name"/>
 
     <ImageView
-        android:layout_width="110dp"
-        android:layout_height="1000dp"
-        android:src="@drawable/shaksham"
+        android:layout_width="90dp"
+        android:layout_height="800dp"
+        android:src="@drawable/applogo"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"/>
         

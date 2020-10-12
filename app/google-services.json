@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "193612753077",
+    "firebase_url": "https://shaksham-576d8.firebaseio.com",
+    "project_id": "shaksham-576d8",
+    "storage_bucket": "shaksham-576d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193612753077:android:7e15d013926c580d29b6fc",
+        "android_client_info": {
+          "package_name": "com.ecomhandcrafting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193612753077-hhtpe0ohqva8hp74mnmsgf7kmps0f1mo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfr8BPUFa7itjElnlrBLo_cz63_MK4tBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193612753077-hhtpe0ohqva8hp74mnmsgf7kmps0f1mo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

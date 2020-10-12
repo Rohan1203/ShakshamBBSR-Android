@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ecomhandcrafting">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,26 +14,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RatingActivity"></activity>
-        <activity android:name=".HomePage.Product1"></activity>
-        <activity android:name=".HomePage.FootWear" />
-        <activity android:name=".HomePage.Myorders" />
-        <activity android:name=".HomePage.HomePage">
-
-        </activity>
-
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
+        <activity android:name=".ProductDetails">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
+        <activity android:name=".ForgetPassword" />
+        <activity android:name=".ValidateUsernameMiddleware" />
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".RatingActivity" />
+        <activity android:name=".HomePage.Product1" />
+        <activity android:name=".HomePage.FootWear" />
+        <activity android:name=".HomePage.Myorders" />
+        <activity android:name=".HomePage.HomePage" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

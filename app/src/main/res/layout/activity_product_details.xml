@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ProductDetails">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:keepScreenOn="false"
+        android:layout_height="671dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imv_product_image"
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+            android:src="@drawable/shoe_product"/>
+
+            <TextView
+                android:id="@+id/tv_product_shgname"
+                android:layout_width="200dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="30dp"
+                android:textAlignment="textStart"
+                android:textColor="#000"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:text="SHG NAME"/>
+            <TextView
+                android:id="@+id/tv_product_productname"
+                android:layout_marginLeft="20dp"
+                android:layout_width="370dp"
+                android:layout_height="30dp"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:text="Lightweight black and white shoe"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_product_originalprice"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="100dp"
+                    android:textColor="#000"
+                    android:textAllCaps="false"
+                    android:inputType="numberDecimal"
+                    android:text="\u20B9490"
+                    android:layout_height="40dp"
+                    android:textSize="35dp"/>
+
+            </LinearLayout>
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="300dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:text="Product Details"-->
+<!--                    android:textColor="#000"-->
+<!--                    android:textSize="18dp"></TextView>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_height="match_parent">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="300dp"-->
+<!--                        android:layout_height="20dp"-->
+<!--                        android:text="Color"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textSize="18dp"></TextView>-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_product_color"-->
+<!--                        android:layout_width="300dp"-->
+<!--                        android:layout_height="20dp"-->
+<!--                        android:text="Product Details"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textSize="18dp"></TextView>-->
+<!--                </LinearLayout>-->
+
+
+
+<!--            </RelativeLayout>-->
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:background="#fff"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_height="match_parent">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textColor="#000"-->
+<!--                    android:text="Rating &amp; Reviews"/>-->
+
+<!--                <androidx.core.widget.NestedScrollView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_height="300dp">-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:orientation="horizontal">-->
+<!--                        <RatingBar-->
+<!--                            android:layout_width="180dp"-->
+<!--                            android:rating="4"-->
+<!--                            android:clickable="false"-->
+<!--                            android:layout_height="match_parent"/>-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:maxLines="10"-->
+<!--                            android:textSize="8dp"-->
+<!--                            android:text="It's a nice product"/>-->
+
+<!--                    </LinearLayout>-->
+<!--                </androidx.core.widget.NestedScrollView>-->
+<!--            </androidx.cardview.widget.CardView>-->
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:gravity="bottom|end"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_product_addtocart"
+            android:layout_width="205dp"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:text="Add to Cart"
+            android:background="#fff"
+            android:layout_height="60dp"/>
+        <Button
+            android:id="@+id/btn_product_buy"
+            android:layout_width="205dp"
+            android:text="buy now"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:textAlignment="center"
+            android:background="@color/banner_background"
+            android:layout_height="60dp"/>
+
+    </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

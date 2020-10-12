@@ -1,12 +1,18 @@
 package com.ecomhandcrafting.HomePage;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.view.WindowManager;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,17 +22,28 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.Resource;
 import com.ecomhandcrafting.HomePage.Homeadapter.FeaturedAdapter;
 import com.ecomhandcrafting.HomePage.Homeadapter.FeaturedHelperClass;
 import com.ecomhandcrafting.HomePage.Homeadapter.SuggestedAdapter;
 import com.ecomhandcrafting.HomePage.Homeadapter.SuggestedHelperClass;
+import com.ecomhandcrafting.MainActivity;
 import com.ecomhandcrafting.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 
 import java.util.ArrayList;
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    GoogleSignInClient mGoogleSignInClient;
 
     //Featured Recycler view
     RecyclerView featuredRecycler;
@@ -48,6 +65,31 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(HomePage.this);
+        if (acct != null) {
+//            String personName = acct.getDisplayName();
+//            String personGivenName = acct.getGivenName();
+//            String personFamilyName = acct.getFamilyName();
+//            String personEmail = acct.getEmail();
+//            String personId = acct.getId();
+//            Uri personPhoto = acct.getPhotoUrl();
+
+//            nameTV.setText("Name: "+personName);
+//            emailTV.setText("Email: "+personEmail);
+//            idTV.setText("ID: "+personId);
+//            Glide.with(this).load(personPhoto).into(photoIV);
+        }
+
+        LayoutInflater inflater = LayoutInflater.from(HomePage.this); // or (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View viewMyLayout = inflater.inflate(R.layout.menu_header, null);
+
         //Remove the status bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_homepage);
@@ -181,6 +223,17 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.nav_home:
                 startActivity(new Intent(getApplicationContext(), HomePage.class));
                 break;
+
+            case R.id.nav_signout :
+                mGoogleSignInClient.signOut()
+                        .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(HomePage.this,"Successfully signed out",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(HomePage.this, MainActivity.class));
+                                finish();
+                            }
+                        });
         }
         return true;
     }

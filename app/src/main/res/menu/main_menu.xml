@@ -19,7 +19,10 @@
             android:id="@+id/nav_account"
             android:title="My Account"
             android:icon="@drawable/ic_account"/>
-
+        <item
+            android:id="@+id/nav_signout"
+            android:title="Sign Out"
+            android:icon="@drawable/ic_sign_out"/>
 
 
     </group>
