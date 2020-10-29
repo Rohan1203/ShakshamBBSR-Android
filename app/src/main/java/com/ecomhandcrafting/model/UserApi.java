@@ -21,4 +21,7 @@ public interface UserApi {
 
     @POST("register")
     Call<UserResponse> registerUser(@Body UserRequest userRequest);
+
+    @GET("get/download.jpg")
+    Call<Imag> getImage();
 }
